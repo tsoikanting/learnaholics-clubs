@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>睿學社  - 頂尖學府人才聚集地</title>
+    <title>睿學社 - 頂尖學府人才聚集地</title>
     <style>
         /* Basic Reset & Global Styles */
         * {
@@ -49,6 +49,11 @@
             color: #0056b3;
             text-decoration: none;
             animation: pulse 2s infinite;
+        }
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
         }
 
         @keyframes pulse {
@@ -312,7 +317,38 @@
         footer p {
             font-size: 0.9em;
         }
-
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
         /* Responsive Design */
         @media (max-width: 768px) {
             header .container {
@@ -394,6 +430,7 @@
 
     <header>
         <div class="container">
+		    <img src="photos/logo.jpg" style="border-radius: 50%; width: 100px; height: 50px; object-fit: cover; margin-bottom: 10px;">
             <a href="#" class="logo">睿學社</a>
             <nav>
                 <ul>
@@ -426,7 +463,6 @@
         <div class="container">
             <h1>歡迎來到睿學社</h1>
             <p>匯聚頂尖學府的智慧與創新，共創未來。</p>
-            <a href="#join" class="cta-button">立即加入我們</a>
         </div>
     </section>
 
@@ -460,17 +496,17 @@
                 <div class="card">
                     <h3>總則</h3>
                     <p>本學會宗旨、組織架構及會員權利義務等基本規範。</p>
-                    <a href="#">查看完整章程</a>
+                    <a href="https://docs.qq.com/pdf/DZW9FeUhjTkVwaXJ3">查看完整章程</a>
                 </div>
                 <div class="card">
                     <h3>管理辦法</h3>
                     <p>涵蓋學會日常運營、活動策劃、財務管理等方面的詳細規定。</p>
-                    <a href="#">查看完整章程</a>
+                    <a href="https://docs.qq.com/pdf/DZW9FeUhjTkVwaXJ3">查看完整章程</a>
                 </div>
                 <div class="card">
                     <h3>學術規範</h3>
                     <p>保障學術誠信，鼓勵開放研究，促進學術成果的交流與傳播。</p>
-                    <a href="#">查看完整章程</a>
+                    <a href="https://docs.qq.com/pdf/DZW9FeUhjTkVwaXJ3">查看完整章程</a>
                 </div>
             </div>
         </div>
@@ -546,73 +582,150 @@
             <h2>重要職位人員</h2>
             <div class="section-content">
                 <div class="card">
-                    <img src="https://via.placeholder.com/100/dddddd/000000?text=Pos+1" alt="Position 1" style="border-radius: 50%; width: 100px; height: 100px; object-fit: cover; margin-bottom: 10px;">
-                    <h3>趙敏</h3>
-                    <p>秘書長</p>
+                    <img src="photos/solomon.jpg" alt="Position 1" style="border-radius: 50%; width: 100px; height: 50px; object-fit: cover; margin-bottom: 10px;">
+                    <h3>Mr. Solomon</h3>
+                    <p><b>技術及資訊科技管理處處長（副部級）</b></p>
+					<p1>澳門城市大學 工商管理學學士</p1>
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/100/dddddd/000000?text=Pos+2" alt="Position 2" style="border-radius: 50%; width: 100px; height: 100px; object-fit: cover; margin-bottom: 10px;">
-                    <h3>錢坤</h3>
-                    <p>學術委員會主席</p>
+                    <img src="photos/philos.jpg" alt="Position 2" style="border-radius: 50%; width: 100px; height: 50px; object-fit: cover; margin-bottom: 10px;">
+                    <h3>Mr. Philos</h3>
+					<p><b>學會及學會内閣副會長（正部級）</b></p>
+					<p1>香港大學 法學政治學學士</p1>
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/100/dddddd/000000?text=Pos+3" alt="Position 3" style="border-radius: 50%; width: 100px; height: 100px; object-fit: cover; margin-bottom: 10px;">
-                    <h3>孫悅</h3>
-                    <p>對外聯絡官</p>
+                    <img src="photos/sweet.jpg" alt="Position 3" style="border-radius: 50%; width: 100px; height: 50px; object-fit: cover; margin-bottom: 10px;">
+                    <h3>Dr. Sweet</h3>
+					<p><b>學會及學會内閣會長（副會級）</b></p>
+					<p1>馬來西亞理科大學 體育科學博士</p1>
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/100/dddddd/000000?text=Pos+4" alt="Position 4" style="border-radius: 50%; width: 100px; height: 100px; object-fit: cover; margin-bottom: 10px;">
-                    <h3>周華</h3>
-                    <p>財務總管</p>
+                    <img src="photos/zy.jpg" alt="Position 4" style="border-radius: 50%; width: 100px; height: 50px; object-fit: cover; margin-bottom: 10px;">
+                    <h3>章魚哥</h3>
+					<p><b>學會中央委員會主席（正會級）</b></p>
+					<p1>南洋理工大學 商業與計算機工程學士</p1>
                 </div>
+				<div class="card">
+				<h3>————————————</h3>
+				<h3><a href="https://docs.qq.com/doc/DQXh5SFBMZFdoanhB">學會政務職位人員名單</a></h3>
+				<h3>————————————</h3>
+                </div>	
             </div>
         </div>
     </section>
 
     <section id="sponsorship">
         <div class="container">
-            <h2>基金會贊助</h2>
+            <h2>入會條件</h2>
             <div class="section-content">
                 <div class="card">
                     <img src="https://via.placeholder.com/100x100/FF5733/ffffff?text=Logo+A" alt="Sponsor A" style="margin-bottom: 15px;">
-                    <h3>創新未來基金會</h3>
-                    <p>支持前沿學術研究與青年人才培養。</p>
+                    <h3>
+					取得或就读本科及以上学历   
+  </h3>
+                   
                 </div>
                 <div class="card">
                     <img src="https://via.placeholder.com/100x100/33FF57/ffffff?text=Logo+B" alt="Sponsor B" style="margin-bottom: 15px;">
-                    <h3>全球教育發展基金</h3>
-                    <p>致力於推動全球教育資源的公平分配。</p>
+                    <h3>满3年技术工作经验</h3>
                 </div>
                 <div class="card">
                     <img src="https://via.placeholder.com/100x100/3357FF/ffffff?text=Logo+C" alt="Sponsor C" style="margin-bottom: 15px;">
-                    <h3>智慧傳承協會</h3>
-                    <p>促進學術知識的傳承與創新。</p>
+                    <h3>应届优秀A-Level/IB/AP/SAT/GCSE/DSE/高考考生</h3>
+                 
+                </div>
+				<div class="card">
+                    <img src="https://via.placeholder.com/100x100/3357FF/ffffff?text=Logo+C" alt="Sponsor C" style="margin-bottom: 15px;">
+                    <h3> 经七大部及五分处推荐</h3>
+                   
+                </div>
+				<div class="card">
+                    <img src="https://via.placeholder.com/100x100/3357FF/ffffff?text=Logo+C" alt="Sponsor C" style="margin-bottom: 15px;">
+                    <h3>  及年满17周岁&未满17岁需监护人授权+且不得担任干事或参与限制性活动*</h3>
+                   
                 </div>
             </div>
         </div>
     </section>
+	
+	   <section id="sponsorship">
+        <div class="container">
+            <h2>优先入会條件</h2>
+            <div class="section-content">
+                <div class="card">
+                    <img src="https://via.placeholder.com/100x100/FF5733/ffffff?text=Logo+A" alt="Sponsor A" style="margin-bottom: 15px;">
+                    <h3>
+					 QS/THE/USNews全球前100高校相关专业在读或毕业生  
+  </h3>
+                   
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/100x100/33FF57/ffffff?text=Logo+B" alt="Sponsor B" style="margin-bottom: 15px;">
+                    <h3>中国教育部首批985工程高校或211工程&医学､法学､计算机等学科*在读或毕业</h3>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/100x100/3357FF/ffffff?text=Logo+C" alt="Sponsor C" style="margin-bottom: 15px;">
+                    <h3> 硕士研究生及以上学历者</h3>
+                 
+                </div>
+			
+            </div>
+        </div>
+    </section>
+
 
     <section id="community">
         <div class="container">
             <h2>加入我們的社群</h2>
             <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px;">與全球精英學者交流，獲取最新資訊，參與精彩活動。</p>
             <div class="social-links">
-                <a href="https://discord.gg/jc4tWgbZU" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                <a href="#" aria-label="WeChat"><i class="fab fa-weixin"></i></a>
-                <a href="#" aria-label="QQ"><i class="fab fa-qq"></i></a>
-                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://discord.gg/eXBuqCk3K" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://discord.com/" aria-label="WeChat"><i class="fab fa-weixin"></i></a>
+                <a href="https://discord.com/" aria-label="QQ"><i class="fab fa-qq"></i></a>
+                <a href="https://discord.com/" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://discord.com/" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 睿學社. All rights reserved.</p>
-            <p>Designed with &hearts; for academic excellence.</p>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>关于学会</h4>
+                <a href="https://docs.qq.com/pdf/DZXNia3JnWU53UUht">学会章程</a>
+                <a href="https://docs.qq.com/pdf/DZWR4UWZoUFBkSXNU">Constitution of Club</a>
+                <a href="https://docs.qq.com/pdf/DZUNaU3pXUEdkR0ti">学会组织架构</a>
+<a href="https://docs.qq.com/pdf/DZWxaYmFmdnVuQk9w">学会成员学历统计</a>
+                <a href="https://arden.ac.uk/">合作伙伴</a>
+            </div>
+            <div class="footer-section">
+                <h4>学术资源</h4>
+                <a href="https://scholar.google.com.hk/">学术论文</a>
+                <a href="https://scholar.google.com.hk/">研究项目</a>
+                <a href="https://www.icourse163.org/">在线课程</a>
+                <a href="https://www.zxlib.com/">电子图书馆</a>
+            </div>
+            <div class="footer-section">
+                <h4>会员服务</h4>
+                <a href="https://weixin.kaayun.com/c/9884def187bf40918e202b84dc0e1630">会员申请</a>
+                <a href="https://docs.qq.com/pdf/DZW9FeUhjTkVwaXJ3">会员权益</a>
+                <a href="https://dszk.youth.cn/qndxx/">爱国教育</a>
+                <a href="http://www.people.com.cn/">国家新闻</a>
+ <a href="https://login.microsoftonline.com/">学会会员登入</a>
+
+            </div>
+            <div class="footer-section">
+                <h4>联系我们</h4>
+                <a href="https://mail.qq.com/">learnaholicscluborg@yahoo.co.uk</a>
+                <a href="https://www.12339.gov.cn/">国安举报</a>
+                <a href="https://nse.uir.cn/index.htm">反诈骗及国安知识</a>
+                <a href="https://baike.baidu.com/pic/%E4%B9%A0%E8%BF%91%E5%B9%B3/515617/1/5882b2b7d0a20cf431ad7f26d25f5c36acaf2fdd3389?fromModule=lemma_top-image&ct=single#aid=1&pic=5882b2b7d0a20cf431ad7f26d25f5c36acaf2fdd3389">瞻仰领导</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LEARNAHOLICS CLUB. All rights reserved. | 追求真理，崇尚学术</p>
         </div>
     </footer>
-
     <script>
         // Basic JavaScript for Language Switcher (optional, for demo)
         document.getElementById('language-select').addEventListener('change', function() {
