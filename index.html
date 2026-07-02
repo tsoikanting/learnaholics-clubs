@@ -5,6 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>睿學社 - 頂尖學府人才聚集地</title>
     <style>
+		/* Hero Section 核心優化 */
+		.hero { 
+			position: relative;
+			height: 400px; /* 給予一個固定高度，確保垂直居中效果 */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			overflow: hidden;
+			background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://via.placeholder.com/1500x800/007bff/ffffff?text=Background') no-repeat center center/cover;
+		}
+
+		/* 1. 容器保持 3D 透視 */
+		.flag-background {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) perspective(1200px) rotateX(70deg); /* 傾斜整個視角 */
+			z-index: 1;
+			pointer-events: none;
+		}
+
+		/* 1. 容器設定：平躺的橢圓軌道 */
+		/* 容器保持圓形佈局 */
+		.flag-ring {
+			position: relative;
+			width: 600px;
+			height: 300px;
+			transform-style: preserve-3d;
+			transform: rotateX(65deg);
+		}
+
+		/* 2. 旗幟定位：修正旋轉方向，確保正面朝外 */
+		.flag-item {
+			position: absolute;
+			left: 50%; top: 50%;
+			width: 100px; height: 60px;
+			transform-origin: center bottom;
+			opacity: 0;
+			/* 將原本的 rotateY(-90deg) 改為 90deg，調整旗幟面向 */
+			animation: flagRotate 40s linear infinite;
+		}
+
+		/* 確保旗幟圖片保持橫向且不被拉伸 */
+		.flag-item img {
+			width: 100%; 
+			height: 100%;
+			object-fit: contain; /* 完整顯示旗幟比例 */
+			background-color: #fff; /* 背景白色，確保透明圖案清晰 */
+			box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+			backface-visibility: hidden; /* 防止背面顯示 */
+		}
+
+		@keyframes flagRotate {
+			0% { 
+				transform: rotateZ(0deg) translateX(300px) rotateY(0deg) rotateX(-65deg); 
+				opacity: 0; 
+			}
+			5% { opacity: 1; } 
+			95% { opacity: 1; } 
+			100% { 
+				transform: rotateZ(360deg) translateX(300px) rotateY(0deg) rotateX(-65deg); 
+				opacity: 0; 
+			}
+		}
+
+		/* 文字層：確保位於正中心 */
+		.hero .container {
+			position: relative;
+			z-index: 2; /* 確保文字在國旗上方 */
+			color: #fff;
+			width: 100%;
+		}
+
 	    .discord-modal {
 		    display: none;
 		    position: fixed;
@@ -135,14 +209,6 @@
         }
 
         /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x800/007bff/ffffff?text=Welcome+to+RuiXueShe') no-repeat center center/cover;
-            color: #fff;
-            text-align: center;
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
 
         .hero h1 {
             font-size: 3.5em;
@@ -491,11 +557,15 @@
     </header>
 
     <section class="hero">
-        <div class="container">
-            <h1>歡迎來到睿學社</h1>
-            <p>匯聚頂尖學府的智慧與創新，共創未來。</p>
-        </div>
-    </section>
+		<div class="flag-background" id="flag-container">
+			<div class="flag-ring" id="ring"></div>
+		</div>
+		
+		<div class="container">
+			<h1>歡迎來到睿學社</h1>
+			<p>匯聚頂尖學府的智慧與創新，共創未來。</p>
+		</div>
+	</section>
 
     <section id="about">
         <div class="container">
@@ -754,6 +824,25 @@
         </div>
     </footer>
     <script>
+		// 國旗背景生成邏輯
+		const ring = document.getElementById('ring');
+		const countryCodes = ['cn', 'us', 'gb', 'fr', 'de', 'jp', 'kr', 'ca', 'au', 'it', 'es', 'sg', 'hk', 'tw', 'ch', 'nl', 'se', 'no', 'fi', 'dk', 'br', 'ru', 'sa', 'za', 'mx', 'in', 'th', 'vn', 'my', 'id', 'ph', 'tr', 'il', 'ar', 'mx', 'cl', 'nz', 'ie', 'pt', 'pl'];
+
+		// 總共顯示的數量
+		const totalFlags = 40; 
+
+		for (let i = 0; i < totalFlags; i++) {
+			const code = countryCodes[i % countryCodes.length]; 
+			const wrapper = document.createElement('div');
+			wrapper.className = 'flag-item';
+			
+			// 關鍵：每個旗幟的動畫時間錯開
+			// 總時間 40s / 總旗數 40 = 每面旗幟間隔 1s
+			wrapper.style.animationDelay = `${i * 1}s`;
+			
+			wrapper.innerHTML = `<img src="https://flagcdn.com/w160/${code}.png" alt="flag">`;
+			ring.appendChild(wrapper);
+		}
 	    // 1. 動態建立彈窗元素
 		const modal = document.createElement('div');
 		modal.className = 'discord-modal';
