@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>睿學社 - 頂尖學府人才聚集地</title>
     <style>
+	    .discord-modal {
+		    display: none;
+		    position: fixed;
+		    top: 0; left: 0;
+		    width: 100%; height: 100%;
+		    background-color: rgba(0,0,0,0.7);
+		    z-index: 9999; /* 確保彈窗在最上層 */
+		    justify-content: center;
+		    align-items: center;
+		}
+
+		.discord-modal-content {
+		    background-color: #36393f;
+		    color: #dcddde;
+		    padding: 30px;
+	    	width: 90%;
+	        max-width: 350px;
+    	 	border-radius: 8px;
+    		box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+     		text-align: center;
+		}
+
+		.discord-btn-close {
+		    background-color: #5865f2;
+		    color: white;
+		    border: none;
+		    padding: 10px 25px;
+		    border-radius: 4px;
+		    cursor: pointer;
+		    margin-top: 20px;
+		}
         /* Basic Reset & Global Styles */
         * {
             margin: 0;
@@ -438,9 +469,9 @@
                     <li><a href="#constitution">學會章程</a></li>
                     <li><a href="#download">App下載</a></li>
                     <li><a href="#development">近期發展</a></li>
-                    <li><a href="#leaders">領導層</a></li>
+                    <li><a href="#leaders">瞻仰領導</a></li>
                     <li><a href="#positions">重要職位</a></li>
-                    <li><a href="#sponsorship">基金贊助</a></li>
+                    <li><a href="#sponsorship">入會條件</a></li>
                     <li><a href="#community">加入社群</a></li>
                 </ul>
             </nav>
@@ -539,7 +570,7 @@
             <h2>學會近期發展</h2>
             <div class="section-content">
                 <div class="card">
-                    <h3>2024年學術年會圓滿落幕</h3>
+                    <h3>2026年學術年會圓滿落幕</h3>
                     <p>匯聚全球頂尖學者，就人工智能、生物科技等前沿領域展開深入探討。</p>
                 </div>
                 <div class="card">
@@ -620,9 +651,7 @@
             <div class="section-content">
                 <div class="card">
                     <img src="https://via.placeholder.com/100x100/FF5733/ffffff?text=Logo+A" alt="Sponsor A" style="margin-bottom: 15px;">
-                    <h3>
-					取得或就读本科及以上学历   
-  </h3>
+                    <h3>取得或就读本科及以上学历</h3>
                    
                 </div>
                 <div class="card">
@@ -653,18 +682,16 @@
             <h2>优先入会條件</h2>
             <div class="section-content">
                 <div class="card">
-                    <img src="https://via.placeholder.com/100x100/FF5733/ffffff?text=Logo+A" alt="Sponsor A" style="margin-bottom: 15px;">
-                    <h3>
-					 QS/THE/USNews全球前100高校相关专业在读或毕业生  
-  </h3>
+                    <img src="photos/qsnewsthe.jpg" alt="Sponsor A" style=" width: 300px; height: 80px;margin-bottom: 15px;">
+                    <h3>QS/THE/USNews全球前100高校相关专业在读或毕业生</h3>
                    
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/100x100/33FF57/ffffff?text=Logo+B" alt="Sponsor B" style="margin-bottom: 15px;">
+                    <img src="photos/985211.jpg" alt="Sponsor B" style=" width: 300px; height: 80px;margin-bottom: 15px;">
                     <h3>中国教育部首批985工程高校或211工程&医学､法学､计算机等学科*在读或毕业</h3>
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/100x100/3357FF/ffffff?text=Logo+C" alt="Sponsor C" style="margin-bottom: 15px;">
+                    <img src="photos/ss.jpg" alt="Sponsor C" style=" width: 300px; height: 80px;margin-bottom: 15px;">
                     <h3> 硕士研究生及以上学历者</h3>
                  
                 </div>
@@ -679,11 +706,11 @@
             <h2>加入我們的社群</h2>
             <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px;">與全球精英學者交流，獲取最新資訊，參與精彩活動。</p>
             <div class="social-links">
-                <a href="https://discord.gg/eXBuqCk3K" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                <a href="https://discord.com/" aria-label="WeChat"><i class="fab fa-weixin"></i></a>
-                <a href="https://discord.com/" aria-label="QQ"><i class="fab fa-qq"></i></a>
-                <a href="https://discord.com/" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://discord.com/" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://discord.gg/6dS9HnJd" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" class="trigger-modal" aria-label="WeChat"><i class="fab fa-weixin"></i></a>
+                <a href="#" class="trigger-modal" aria-label="QQ"><i class="fab fa-qq"></i></a>
+                <a href="#" class="trigger-modal" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="trigger-modal" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
             </div>
         </div>
     </section>
@@ -727,6 +754,30 @@
         </div>
     </footer>
     <script>
+	    // 1. 動態建立彈窗元素
+		const modal = document.createElement('div');
+		modal.className = 'discord-modal';
+		modal.innerHTML = `
+		  <div class="discord-modal-content">
+			<h3>請使用Discord</h3>
+			<p>我們僅支持Discord加入社群，多謝配合</p>
+			<button class="discord-btn-close" onclick="this.parentElement.parentElement.style.display='none'">確認</button>
+		  </div>
+		`;
+		document.body.appendChild(modal);
+
+		// 2. 監聽所有帶有 trigger-modal class 的連結
+		document.querySelectorAll('.trigger-modal').forEach(link => {
+		  link.addEventListener('click', function(e) {
+			e.preventDefault(); // 防止立即跳轉
+			modal.style.display = 'flex'; // 顯示彈窗
+		  });
+		});
+
+		// 點擊背景空白處關閉
+		window.addEventListener('click', (e) => {
+		  if (e.target === modal) modal.style.display = 'none';
+		});
         // Basic JavaScript for Language Switcher (optional, for demo)
         document.getElementById('language-select').addEventListener('change', function() {
             alert('Language changed to: ' + this.value);
